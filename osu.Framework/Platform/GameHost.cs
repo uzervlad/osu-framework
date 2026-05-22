@@ -1347,7 +1347,7 @@ namespace osu.Framework.Platform
                     updateLimiter *= 2;
                     break;
 
-                case FrameSync.Limit2x:
+                case .Limit2x:
                     drawLimiter *= 2;
                     updateLimiter *= 2;
                     break;
@@ -1362,17 +1362,22 @@ namespace osu.Framework.Platform
                     updateLimiter *= 8;
                     break;
 
+                case FrameSync.OneThousand:
+                    drawLimiter = maximum_sane_fps;
+                    updateLimiter = maximum_sane_fps;
+                    break;
+
                 case FrameSync.Unlimited:
                     drawLimiter = int.MaxValue;
                     updateLimiter = int.MaxValue;
                     break;
             }
 
-            if (!AllowBenchmarkUnlimitedFrames)
-            {
-                drawLimiter = Math.Min(maximum_sane_fps, drawLimiter);
-                updateLimiter = Math.Min(maximum_sane_fps, updateLimiter);
-            }
+            // if (!AllowBenchmarkUnlimitedFrames)
+            // {
+            //     drawLimiter = Math.Min(maximum_sane_fps, drawLimiter);
+            //     updateLimiter = Math.Min(maximum_sane_fps, updateLimiter);
+            // }
 
             MaximumDrawHz = drawLimiter;
             MaximumUpdateHz = updateLimiter;

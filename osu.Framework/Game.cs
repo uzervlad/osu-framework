@@ -272,21 +272,21 @@ namespace osu.Framework
         {
             base.LoadComplete();
 
-            PerformanceOverlay performanceOverlay;
+            // PerformanceOverlay performanceOverlay;
 
-            LoadComponentAsync(performanceOverlay = new PerformanceOverlay
-            {
-                Margin = new MarginPadding(5),
-                Direction = FillDirection.Vertical,
-                Spacing = new Vector2(10, 10),
-                AutoSizeAxes = Axes.Both,
-                Alpha = 0,
-                Anchor = Anchor.BottomRight,
-                Origin = Anchor.BottomRight,
-                Depth = float.MinValue
-            }, overlayContent.Add);
+            // LoadComponentAsync(performanceOverlay = new PerformanceOverlay
+            // {
+            //     Margin = new MarginPadding(5),
+            //     Direction = FillDirection.Vertical,
+            //     Spacing = new Vector2(10, 10),
+            //     AutoSizeAxes = Axes.Both,
+            //     Alpha = 0,
+            //     Anchor = Anchor.BottomRight,
+            //     Origin = Anchor.BottomRight,
+            //     Depth = float.MinValue
+            // }, overlayContent.Add);
 
-            FrameStatistics.BindValueChanged(e => performanceOverlay.State = e.NewValue, true);
+            // FrameStatistics.BindValueChanged(e => performanceOverlay.State = e.NewValue, true);
 
             if (FrameworkEnvironment.FrameStatisticsViaTouch)
             {
@@ -301,7 +301,7 @@ namespace osu.Framework
             }
         }
 
-        protected readonly Bindable<FrameStatisticsMode> FrameStatistics = new Bindable<FrameStatisticsMode>();
+        // protected readonly Bindable<FrameStatisticsMode> FrameStatistics = new Bindable<FrameStatisticsMode>();
 
         private GlobalStatisticsDisplay globalStatistics;
 
@@ -320,9 +320,9 @@ namespace osu.Framework
 
             switch (e.Action)
             {
-                case FrameworkAction.CycleFrameStatistics:
-                    CycleFrameStatistics();
-                    return true;
+                // case FrameworkAction.CycleFrameStatistics:
+                //     CycleFrameStatistics();
+                //     return true;
 
                 case FrameworkAction.ToggleDrawVisualiser:
 
@@ -422,20 +422,20 @@ namespace osu.Framework
 
         protected void CycleFrameStatistics()
         {
-            switch (FrameStatistics.Value)
-            {
-                case FrameStatisticsMode.None:
-                    FrameStatistics.Value = FrameStatisticsMode.Minimal;
-                    break;
+            // switch (FrameStatistics.Value)
+            // {
+            //     case FrameStatisticsMode.None:
+            //         FrameStatistics.Value = FrameStatisticsMode.Minimal;
+            //         break;
 
-                case FrameStatisticsMode.Minimal:
-                    FrameStatistics.Value = FrameStatisticsMode.Full;
-                    break;
+            //     case FrameStatisticsMode.Minimal:
+            //         FrameStatistics.Value = FrameStatisticsMode.Full;
+            //         break;
 
-                case FrameStatisticsMode.Full:
-                    FrameStatistics.Value = FrameStatisticsMode.None;
-                    break;
-            }
+            //     case FrameStatisticsMode.Full:
+            //         FrameStatistics.Value = FrameStatisticsMode.None;
+            //         break;
+            // }
         }
 
         private void toggleOverlay(OverlayContainer overlay)
